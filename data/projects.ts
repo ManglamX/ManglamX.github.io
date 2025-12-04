@@ -97,6 +97,6 @@ export const projects: Project[] = [
     tech: ["Web Development", "Gamification", "Podcasts", "Community Hub"],
     demo: undefined,
     repo: "https://github.com/ManglamX/Climate-Change-Education-App",
-    image: "https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
   },
 ]
