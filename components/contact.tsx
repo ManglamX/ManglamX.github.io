@@ -1,56 +1,127 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { profile } from "@/data/profile"
+import { motion } from "framer-motion"
+import { Mail, Phone, MapPin, Linkedin, FileDown, Terminal, Github, Code2, Braces, Shield } from "lucide-react"
 
 export function Contact() {
+  const contactItems = [
+    { icon: Mail, label: "EMAIL", value: "ecs.crce.10127@gmail.com", href: "mailto:ecs.crce.10127@gmail.com" },
+    { icon: Phone, label: "PHONE", value: "+91 8052615183", href: "tel:+918052615183" },
+    { icon: MapPin, label: "LOCATION", value: "Mumbai, Maharashtra", href: null },
+    { icon: Linkedin, label: "LINKEDIN", value: "Connect on LinkedIn", href: "https://www.linkedin.com/in/manglam-jaiswal-0b2822290" },
+    { icon: Github, label: "GITHUB", value: "View GitHub Profile", href: "https://github.com/ManglamX" },
+    { icon: Code2, label: "HACKERRANK", value: "View HackerRank Profile", href: "https://www.hackerrank.com/profile/raaj_jaiswal1990" },
+    { icon: Braces, label: "LEETCODE", value: "View LeetCode Profile", href: "https://leetcode.com/u/ManglamX/" },
+    { icon: Shield, label: "TRYHACKME", value: "View TryHackMe Profile", href: "https://tryhackme.com/p/ManglamX" },
+  ]
+
   return (
-    <section id="contact" aria-labelledby="contact-title">
-      <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-        <Card>
-          <CardHeader>
-            <CardTitle id="contact-title" className="text-2xl tracking-tight">
-              Get in touch
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-muted-foreground">
-            <p>I’m open to collaboration and new opportunities. The fastest way to reach me is by email or phone.</p>
-            <ul className="mt-4 grid gap-2">
-              <li>
-                <a className="text-primary hover:underline" href="mailto:ecs.crce.10127@gmail.com">
-                  ecs.crce.10127@gmail.com
-                </a>
-              </li>
-              <li>
-                <a className="text-primary hover:underline" href="tel:+918052615183">
-                  +91 8052615183
-                </a>
-              </li>
-              <li className="text-muted-foreground">Mumbai, Maharashtra</li>
-              <li>
-                <a
-                  className="text-primary hover:underline"
-                  href="https://www.linkedin.com/in/manglam-jaiswal-0b2822290"
-                  target="_blank"
-                  rel="noopener noreferrer"
+    <section id="contact" className="py-20">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary font-mono mb-2">
+            &lt;ESTABLISH_CONTACT /&gt;
+          </h2>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mb-8"></div>
+
+          <Card className="bg-black/50 border-primary/30 backdrop-blur-sm overflow-hidden">
+            {/* Terminal Header */}
+            <div className="bg-primary/10 border-b border-primary/20 px-4 py-2 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="text-xs font-mono text-primary/70">contact_interface.sh</div>
+              <Terminal className="w-4 h-4 text-primary/50" />
+            </div>
+
+            <CardHeader>
+              <CardTitle className="text-2xl font-mono text-accent">
+                INITIATE_COMMUNICATION_PROTOCOL
+              </CardTitle>
+              <p className="text-sm font-mono text-muted-foreground mt-2">
+                // Open to collaboration and new opportunities
+              </p>
+            </CardHeader>
+
+            <CardContent className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                {contactItems.map((item, idx) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.08 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="flex items-center gap-4 p-3 rounded border border-primary/20 hover:border-primary/50 hover:bg-primary/5 transition-all h-full"
+                      >
+                        <div className="text-primary group-hover:text-accent transition-colors">
+                          <item.icon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-mono text-muted-foreground">{item.label}</div>
+                          <div className="text-sm font-mono text-foreground group-hover:text-primary transition-colors">
+                            {item.value}
+                          </div>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-4 p-3 rounded border border-primary/20 h-full">
+                        <div className="text-primary">
+                          <item.icon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-mono text-muted-foreground">{item.label}</div>
+                          <div className="text-sm font-mono text-foreground">{item.value}</div>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+
+              {profile.resumeUrl && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  viewport={{ once: true }}
                 >
-                  LinkedIn
-                </a>
-              </li>
-              {profile.resumeUrl ? (
-                <li>
                   <a
-                    className="text-primary hover:underline"
                     href={profile.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Download Resume (opens in a new tab)"
+                    className="flex items-center justify-center gap-3 p-4 rounded border-2 border-accent/50 hover:border-accent hover:bg-accent/10 transition-all group mt-6"
                   >
-                    Download Resume
+                    <FileDown className="w-5 h-5 text-accent group-hover:animate-bounce" />
+                    <span className="font-mono text-accent font-bold">DOWNLOAD_RESUME.pdf</span>
                   </a>
-                </li>
-              ) : null}
-            </ul>
-          </CardContent>
-        </Card>
+                </motion.div>
+              )}
+
+              <div className="mt-6 pt-4 border-t border-primary/20">
+                <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <span>RESPONSE_TIME: &lt; 24 hours</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   )
