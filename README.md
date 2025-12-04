@@ -1,16 +1,15 @@
-# 🚀 Manglam Jaiswal - Portfolio Website
+# 🔐 Manglam Jaiswal - Cybersecurity Portfolio
 
 <div align="center">
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live%20%26%20Deployed-brightgreen)
+![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Next.js](https://img.shields.io/badge/Next.js-14.2.16-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.9-38B2AC)
-![AWS](https://img.shields.io/badge/AWS-S3%20%2B%20CloudFront-orange)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1-38B2AC)
 
-**A modern, responsive portfolio website built with Next.js, featuring dark/light mode and deployed on AWS with CloudFront CDN.**
+**A cybersecurity-themed portfolio showcasing projects in Full-Stack Development, IoT, and Cybersecurity.**
 
-[🌐 Live Demo](https://d3a47i1j1t2si8.cloudfront.net) • [📧 Contact](mailto:ecs.crce.10127@gmail.com) • [☁️ CloudFront URL](https://d3a47i1j1t2si8.cloudfront.net)
+[🌐 Live Demo](https://manglam.me/) • [📧 Email](mailto:ecs.crce.10127@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/manglam-jaiswal-0b2822290)
 
 </div>
 
@@ -18,29 +17,28 @@
 
 ## ✨ Features
 
-- 🎨 **Modern Design** - Clean, professional layout with smooth animations
-- 🌙 **Dark/Light Mode** - Toggle between themes with persistent preferences
-- 📱 **Fully Responsive** - Optimized for all devices and screen sizes
-- ⚡ **Fast Performance** - Static site generation with CloudFront CDN
-- 🔒 **Secure** - HTTPS enabled with AWS Certificate Manager
-- 🎯 **SEO Optimized** - Meta tags, structured data, and semantic HTML
-- 🚀 **Deployed on AWS** - S3 + CloudFront for global distribution
+- 🔐 **Cybersecurity Theme** - Dark cyberpunk aesthetic with neon green/blue accents
+- 🎨 **Matrix Background** - Animated Matrix rain effect
+- 💻 **Terminal UI** - Terminal-style components and glitch effects
+- 📱 **Fully Responsive** - Optimized for all devices
+- ⚡ **Fast Performance** - Static site generation
+- 🎯 **SEO Optimized** - Meta tags and semantic HTML
+- 🌐 **GitHub Pages** - Deployed and live
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Framer Motion** - Smooth animations
 - **Radix UI** - Accessible component primitives
-- **Lucide React** - Beautiful icons
-- **next-themes** - Theme management
+- **Lucide React** - Icon library
+- **Three.js / React Three Fiber** - 3D graphics
 
-### Deployment & Infrastructure
-- **AWS S3** - Static website hosting
-- **AWS CloudFront** - Global CDN with HTTPS
-- **AWS Certificate Manager** - Free SSL certificates
-- **Origin Access Control** - Secure S3 access
+### Deployment
+- **GitHub Pages** - Static site hosting
+- **GitHub Actions** - Automated deployment
 
 ## 🚀 Quick Start
 
@@ -52,22 +50,18 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
-   cd portfolio
+   git clone https://github.com/ManglamX/ManglamX.github.io.git
+   cd ManglamX.github.io
    ```
 
 2. **Install dependencies**
    ```bash
    pnpm install
-   # or
-   npm install
    ```
 
 3. **Run development server**
    ```bash
    pnpm dev
-   # or
-   npm run dev
    ```
 
 4. **Open your browser**
@@ -78,30 +72,16 @@
 ### Local Build
 ```bash
 pnpm build
-pnpm start
 ```
 
-### AWS Deployment
+### Deploy to GitHub Pages
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
 
-1. **Configure AWS CLI**
-   ```bash
-   aws configure
-   ```
-
-2. **Build static site**
-   ```bash
-   pnpm build
-   ```
-
-3. **Upload to S3**
-   ```bash
-   aws s3 sync ./out s3://your-bucket-name --delete
-   ```
-
-4. **Invalidate CloudFront cache**
-   ```bash
-   aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
-   ```
+GitHub Actions will automatically build and deploy to GitHub Pages.
 
 ## 🎨 Customization
 
@@ -112,86 +92,89 @@ Update your details in:
 - `app/layout.tsx` - Site metadata and SEO
 
 ### Styling
-- Modify `app/globals.css` for global styles
+- Modify `app/globals.css` for global styles and cyber theme
 - Update `components/` for component-specific styling
-- Theme colors are defined in CSS custom properties
+- Theme colors use CSS custom properties with neon green (#00ff41) and cyber blue
 
-### Content
-- **Projects**: Edit `data/projects.ts`
-- **Skills**: Update `components/skills.tsx`
-- **Experience**: Modify `components/experience.tsx`
-- **Education**: Edit `components/education.tsx`
+### Content Sections
+- **Hero**: `components/cyber-hero.tsx`
+- **About**: `components/about.tsx`
+- **Skills**: `components/skills.tsx` (Terminal UI)
+- **Projects**: `components/projects-grid.tsx`
+- **Experience**: `components/experience.tsx`
+- **Education**: `components/education.tsx`
+- **Certifications**: `components/certifications.tsx`
+- **Achievements**: `components/activities.tsx`
+- **Contact**: `components/contact.tsx`
 
 ## 📁 Project Structure
 
 ```
-portfolio/
+ManglamX.github.io/
 ├── app/                    # Next.js App Router
-│   ├── globals.css        # Global styles
+│   ├── globals.css        # Global styles & cyber theme
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
 ├── components/            # React components
 │   ├── ui/               # Reusable UI components
-│   ├── hero.tsx          # Hero section
+│   ├── cyber-hero.tsx    # Hero with particle effects
 │   ├── about.tsx         # About section
+│   ├── certifications.tsx # Certifications display
 │   └── ...
 ├── data/                  # Static data
 │   ├── profile.ts        # Profile information
 │   └── projects.ts       # Projects data
 ├── public/               # Static assets
-│   ├── images/          # Images and icons
-│   └── ...
-└── styles/              # Additional styles
+│   └── Images/          # Project images
+└── next.config.mjs      # Next.js configuration
 ```
 
 ## 🌐 Live Website
 
-**🔗 [Visit Portfolio](https://d3a47i1j1t2si8.cloudfront.net)**
+**🔗 [Visit Portfolio](https://manglam.me/)**
 
-**☁️ CloudFront CDN URL**: `https://d3a47i1j1t2si8.cloudfront.net`
-
-- **Performance**: 95+ Lighthouse score
-- **Accessibility**: WCAG 2.1 compliant
-- **SEO**: Optimized meta tags and structured data
-- **Security**: HTTPS with HSTS headers
-- **CDN**: Global distribution via AWS CloudFront
-
-## 📊 Performance Metrics
-
-- ⚡ **First Contentful Paint**: < 1.5s
-- 🎯 **Largest Contentful Paint**: < 2.5s
-- 📱 **Mobile-Friendly**: 100% responsive
-- 🔍 **SEO Score**: 95+ on PageSpeed Insights
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 About the Developer
+## 🎓 About
 
 **Manglam Jaiswal**
-- 🎓 B.E. Electronics & Computer Science (Cybersecurity Honors)
-- 🔐 IoT Lead & Full-Stack Developer
-- 🏫 Third-year at Fr. Conceicao Rodrigues College of Engineering
-- 🏢 IoT Lead at Project Cell
-- 💼 Internship experience at Apraava Energy
+- 🎓 B.E. Electronics & Computer Science (Honors in Cybersecurity)
+- 📊 CGPA: 9.15/10
+- 🏫 Fr. Conceicao Rodrigues College of Engineering, Mumbai University
+- 🔐 IoT Lead at Project Cell CRCE
+- 💼 Former Intern at Apraava Energy
+
+### 🏆 Achievements
+- 🥇 Rank #48/1700 in OWASP Hacker's Gambit National CTF
+- 🏅 Finalist in Breach Bytes 3.0 CTF
+- 💰 IDFC First Bank Scholarship Recipient (Rs. 1 Lakh)
+- 🚀 100X.VC Pitch Competition Participant
+
+### 📜 Certifications (9 Total)
+- Google Cloud Cybersecurity Certificate
+- AWS Academy Graduate - Cloud Architecting
+- Cryptography: A Hands-On Approach
+- Tata Cybersecurity Analyst Job Simulation
+- Deloitte Cyber Job Simulation
+- Geodata Processing using Python & ML
+- Introduction to Internet of Things
+- Python for Data Science
+- Social Network Analysis
+
+### 🚀 Featured Projects
+1. **GhostESP** - Wireless Security Testing Firmware
+2. **ESP Monitor** - WiFi Security Monitor with LCD
+3. **PWDGuard** - Password Security Suite
+4. **FixLit** - Smart Lighting Control System
+5. **AI Waste Classification** - ResNet50 + Gemini API
+6. And 4 more...
 
 ### Connect with me
 - 📧 Email: [ecs.crce.10127@gmail.com](mailto:ecs.crce.10127@gmail.com)
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🐙 GitHub: [Your GitHub Profile]
-- 🌐 Portfolio: [https://d3a47i1j1t2si8.cloudfront.net](https://d3a47i1j1t2si8.cloudfront.net)
-- ☁️ CloudFront CDN: [https://d3a47i1j1t2si8.cloudfront.net](https://d3a47i1j1t2si8.cloudfront.net)
+- 💼 LinkedIn: [manglam-jaiswal-0b2822290](https://www.linkedin.com/in/manglam-jaiswal-0b2822290)
+- 🐙 GitHub: [ManglamX](https://github.com/ManglamX)
+- 💻 HackerRank: [raaj_jaiswal1990](https://www.hackerrank.com/profile/raaj_jaiswal1990)
+- 🔧 LeetCode: [ManglamX](https://leetcode.com/u/ManglamX/)
+- 🛡️ TryHackMe: [ManglamX](https://tryhackme.com/p/ManglamX)
+- 🌐 Portfolio: [https://manglam.me/](https://manglam.me/)
 
 ---
 
@@ -199,6 +182,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repository if you found it helpful!**
 
-Made with ❤️ by [Manglam Jaiswal](https://d3a47i1j1t2si8.cloudfront.net)
+Made with 💚 by [Manglam Jaiswal](https://manglam.me/)
 
 </div>
